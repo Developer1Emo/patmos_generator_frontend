@@ -10,7 +10,16 @@
       <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
         
         <li><a routerLink="/" class="nav-link px-2 link-secondary"><strong>Inicio</strong></a></li>
-        <li><a routerLink="/login" class="nav-link px-2"><strong>Login</strong></a></li>
+        <li><a routerLink="/login" class="nav-link px-2"style="color:black;"><strong>Login</strong></a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color:black;">
+            <strong>Usuarios</strong>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Crear</a></li>
+            <li><a routerLink="/gestionUsuarios" class="dropdown-item" href="#">Consultar</a></li>
+          </ul>
+        </li>
       </ul>
 
       <div class="col-md-3 text-end">
@@ -18,4 +27,4 @@
       </div>
     </header>
   </div>
-  
+

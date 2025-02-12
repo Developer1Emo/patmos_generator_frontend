@@ -9,5 +9,9 @@ export const routes: Routes = [
     {
         path: 'login',
         loadComponent: () => import('./componentes/login/login.component').then(m => m.LoginComponent),
+    },
+    {
+        path: 'gestionUsuarios',
+        loadComponent: () => import('./componentes/gestion-usuarios/gestion-usuarios.component').then(m => m.GestionUsuariosComponent),
     }
 ];
