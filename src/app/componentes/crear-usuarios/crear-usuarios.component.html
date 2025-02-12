@@ -1,1 +1,109 @@
-<p>crear-usuarios works!</p>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f9f9f9;
+        padding: 20px;
+    }
+
+    .form-container {
+        display: grid;
+        grid-template-columns:  auto;
+        gap: 15px;
+        max-width: auto;
+        background: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+    }
+
+    label {
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+
+    input, select {
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    .buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    button {
+        background-color: #000;
+        color: white;
+        border: none;
+        padding: 10px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #333;
+    }
+</style>
+<div class="container">
+    <div class="card">
+      <div class="card-header p-4" style="background-color: rgb(255, 217, 102);border-color: rgb(255, 191, 0);">
+        <div>
+            <h5 class="mb-0">
+                <i class="fa-solid me-3"></i>Crear usuario
+              </h5>
+        </div>        
+      </div>
+      <div class="card-body p-4">
+        <h5 class="card-title"><img src="assets\img\panal1.png" alt="Logo" class="me-2" width="50" height="50">Datos básicos: </h5>
+        
+        <div class="form-container">
+            <div class="form-group">
+                <label for="identificacion">Identificación:</label>
+                <input type="text" id="identificacion" name="identificacion">
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password">
+            </div>
+        
+            <div class="form-group">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre">
+            </div> 
+            <div class="form-group">
+                <label for="rol">Rol:</label>
+                <select id="rol" name="rol">
+                    <option value="admin">Admin</option>
+                    <option value="usuario">Usuario</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="telefono">Teléfono:</label>
+                <input type="tel" id="telefono" name="telefono">
+            </div>
+        
+            <div class="form-group">
+                <label for="email">Correo electrónico:</label>
+                <input type="email" id="email" name="email">
+            </div>
+            <div class="form-group">
+                <label for="direccion">Dirección:</label>
+                <input type="text" id="direccion" name="direccion">
+            </div>
+        
+            <br>
+            <div class="buttons">
+                <button type="submit">Crear</button>
+            </div>
+        </div>        
+
+      </div>
+    </div>
+   </div>
