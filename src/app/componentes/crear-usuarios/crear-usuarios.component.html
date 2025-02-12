@@ -71,12 +71,16 @@
                 <label for="identificacion">Identificación:</label>
                 <input type="text" class="form-control" formControlName="identificacion" />
             </div>
+           
             <!--FIN IDENTIFICACION-->
             <!--NOMBRE-->
             <div class="form-group">
                 <label for="nombre">Nombre:</label>
                 <input type="text" class="form-control" formControlName="nombreCompleto" />
             </div> 
+            <div *ngIf="crearUsuarioForm.get('nombreCompleto')?.hasError('required') && crearUsuarioForm.get('nombreCompleto')?.touched">
+                El campo nombre es obligatorio
+              </div>
             <!--FIN NOMBRE-->
             <!--ROL-->
             <div class="col-6">

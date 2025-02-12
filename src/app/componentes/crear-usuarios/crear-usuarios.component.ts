@@ -5,12 +5,13 @@ import { AdministradorService } from '../../servicios/administrador.service';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { CrearUsuarioDTO } from '../../dto/crear-usuario-dto';
+import { CommonModule } from '@angular/common';
 
 
 @Component({
   selector: 'app-crear-usuarios',
   standalone: true,
-  imports: [ReactiveFormsModule,RouterModule],
+  imports: [ReactiveFormsModule,RouterModule,CommonModule],
   templateUrl: './crear-usuarios.component.html',
   styleUrl: './crear-usuarios.component.css'
 })
@@ -26,6 +27,7 @@ export class CrearUsuariosComponent {
     this.crearFormulario();
     this.tiposDeRol = ['ADMINISTRADOR', 'EMPLEADO'];
    }
+   
 //tipoDeRol
   private crearFormulario() {
     this.crearUsuarioForm = this.formBuilder.group({
@@ -38,7 +40,8 @@ export class CrearUsuariosComponent {
       direccion: ['', [Validators.required]],
       confirmaPassword: ['', [Validators.required, Validators.maxLength(10), Validators.minLength(7)]]
      },
-    { validators: this.passwordsMatchValidator } as AbstractControlOptions
+    { validators: this.passwordsMatchValidator
+     } as AbstractControlOptions
   );
    }
 
@@ -54,10 +57,10 @@ public crearUsuario(){
 
   this.adminService.crearUsuario(usuarioDTO).subscribe({
     next: (data) => {
-      this.mensaje=data.respuesta.mensaje;
+      this.mensaje=data?.respuesta.mensaje;
       Swal.fire({
         title: 'Creación exitosa',
-        text: 'Se ha creado correctamente'+this.mensaje,
+        text: 'Se ha creado correctamente - '+this.mensaje,
         icon: 'success',
         confirmButtonText: 'Aceptar'
       })
@@ -66,7 +69,7 @@ public crearUsuario(){
     error: (error) => {
       Swal.fire({
         title: 'Error: No se ha podido registrar.',
-        text: error.error.respuesta,
+        text: error.error?.respuesta.mensaje || 'Error desconocido',
         icon: 'error',
         confirmButtonText: 'Aceptar'
       })
