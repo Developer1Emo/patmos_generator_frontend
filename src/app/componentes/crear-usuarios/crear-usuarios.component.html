@@ -1,0 +1,137 @@
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f9f9f9;
+        padding: 20px;
+    }
+
+    .form-container {
+        display: grid;
+        grid-template-columns:  auto;
+        gap: 15px;
+        max-width: auto;
+        background: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+    }
+
+    label {
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+
+    input, select {
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    .buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    button {
+        background-color: #000;
+        color: white;
+        border: none;
+        padding: 10px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #333;
+    }
+</style>
+<div class="container">
+    <div class="card">
+      <div class="card-header p-4" style="background-color: rgb(255, 217, 102);border-color: rgb(255, 191, 0);">
+        <div>
+            <h5 class="mb-0">
+                <i class="fa-solid me-3"></i>Crear usuario
+              </h5>
+        </div>        
+      </div>
+      <div class="card-body p-4">
+        <h5 class="card-title"><img src="assets\img\panal1.png" alt="Logo" class="me-2" width="50" height="50">Datos básicos: </h5>
+        
+        <div class="form-container">
+            <!--AQUI VA FORM-->
+            <form [formGroup]="crearUsuarioForm" (ngSubmit)="crearUsuario()" novalidate="">
+            <!--IDENTIFICACION-->
+            <div class="form-group">
+                <label for="identificacion">Identificación:</label>
+                <input type="text" class="form-control" formControlName="identificacion" />
+            </div>
+           
+            <!--FIN IDENTIFICACION-->
+            <!--NOMBRE-->
+            <div class="form-group">
+                <label for="nombre">Nombre:</label>
+                <input type="text" class="form-control" formControlName="nombreCompleto" />
+            </div> 
+            <div *ngIf="crearUsuarioForm.get('nombreCompleto')?.hasError('required') && crearUsuarioForm.get('nombreCompleto')?.touched">
+                El campo nombre es obligatorio
+              </div>
+            <!--FIN NOMBRE-->
+            <!--ROL-->
+            <div class="col-6">
+                <label class="form-label">Rol: </label>
+                <select formControlName="tipoDeRol" class="form-select" >
+                    <option value="">Seleccione un rol</option>
+                    @for (item of tiposDeRol; track $index) {
+                        <option value="{{item}}">{{item}}</option>
+                    }
+                </select>
+            </div>
+            <!--FIN ROL-->
+            <!--EMAIL-->
+            <div class="form-group">
+                <label for="email">Correo electrónico:</label>
+                <input type="email" class="form-control" formControlName="email" />
+            </div>
+            <!--FIN EMAIL-->
+            <!--PASSWORD-->
+            <div class="form-group">
+                <label for="password">Contraseña:</label>
+                <input type="password" class="form-control" formControlName="password" />
+            </div>
+            <div class="form-group">
+                <label for="password">Repetir contraseña:</label>
+                <input type="password" class="form-control" formControlName="confirmaPassword" />
+            </div>
+            @if (crearUsuarioForm.hasError('passwordsMismatch')) {
+                <p style="color: red;">Las contraseñas no coinciden</p>
+                }
+            <!--FIN PASSWORD-->
+            <!--TELEFONO-->
+            <div class="form-group">
+                <label for="telefono">Teléfono:</label>
+                <input type="text" class="form-control" formControlName="telefono" />
+            </div>
+            <!--FIN TELEFONO-->
+            <!--DIRECCION-->
+            <div class="form-group">
+                <label for="direccion">Dirección:</label>
+                <input type="text" class="form-control" formControlName="direccion" />
+            </div>
+            <!--FIN DIRECCION-->
+            <br>
+            <div class="buttons">
+                <button type="submit" [disabled]="crearUsuarioForm.invalid">Crear</button>
+            </div>
+        </form>
+            <!--AQUI FINALIZA FORM-->
+        </div>        
+
+      </div>
+    </div>
+   </div>

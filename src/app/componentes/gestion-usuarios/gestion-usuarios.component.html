@@ -1,0 +1,168 @@
+<style>
+  body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      padding: 20px;
+  }
+
+  .form-container {
+      display: grid;
+      grid-template-columns:  auto;
+      gap: 15px;
+      max-width: auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .form-group {
+      display: flex;
+      flex-direction: column;
+  }
+
+  label {
+      margin-bottom: 5px;
+      font-weight: bold;
+  }
+
+  input, select {
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+  }
+
+  .buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+  }
+
+  button {
+      background-color: #000;
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 4px;
+      cursor: pointer;
+  }
+
+  button:hover {
+      background-color: #333;
+  }
+</style>
+<div class="container">
+    <div class="card">
+      <div class="card-header p-4" style="background-color: rgb(255, 217, 102);border-color: rgb(255, 191, 0);">
+        <h5 class="mb-0">
+          <i class="fa-solid me-3"></i>Gestión usuarios
+        </h5>
+      </div>
+      <div class="card-body p-4">
+        <div class="form-container">
+          <div class="form-group">
+            <input type="text" id="identificacion" name="identificacion" placeholder="Ingrese el número de identificación o el nombre completo">
+          </div>
+          <div class="buttons">
+            <button type="submit">Buscar</button>
+          </div>
+        </div>
+        <br>
+        <p class="card-text">
+           
+            </p>
+            <div class="container">
+                <div class="card">
+                    <div class="card-header p-4" style="background-color: rgb(255, 217, 102);border-color: rgb(255, 191, 0);">
+                        <h5 class="mb-0">
+
+                            <div class="fs-5 mb-6">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-receipt" viewBox="0 0 16 16">
+                                    <path d="M1.92.506a.5.5 0 0 1 .434.14L3 1.293l.646-.647a.5.5 0 0 1 .708 0L5 1.293l.646-.647a.5.5 0 0 1 .708 0L7 1.293l.646-.647a.5.5 0 0 1 .708 0L9 1.293l.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .801.13l.5 1A.5.5 0 0 1 15 2v12a.5.5 0 0 1-.053.224l-.5 1a.5.5 0 0 1-.8.13L13 14.707l-.646.647a.5.5 0 0 1-.708 0L11 14.707l-.646.647a.5.5 0 0 1-.708 0L9 14.707l-.646.647a.5.5 0 0 1-.708 0L7 14.707l-.646.647a.5.5 0 0 1-.708 0L5 14.707l-.646.647a.5.5 0 0 1-.708 0L3 14.707l-.646.647a.5.5 0 0 1-.801-.13l-.5-1A.5.5 0 0 1 1 14V2a.5.5 0 0 1 .053-.224l.5-1a.5.5 0 0 1 .367-.27m.217 1.338L2 2.118v11.764l.137.274.51-.51a.5.5 0 0 1 .707 0l.646.647.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.509.509.137-.274V2.118l-.137-.274-.51.51a.5.5 0 0 1-.707 0L12 1.707l-.646.647a.5.5 0 0 1-.708 0L10 1.707l-.646.647a.5.5 0 0 1-.708 0L8 1.707l-.646.647a.5.5 0 0 1-.708 0L6 1.707l-.646.647a.5.5 0 0 1-.708 0L4 1.707l-.646.647a.5.5 0 0 1-.708 0z"/>
+                                    <path d="M3 4.5a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5m8-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5"/>
+                                  </svg> Usuarios Creados
+                              </div>
+                    </h5>
+                </div>
+                <div class="card-body p-4">
+                  <!--Tabla de usuarios-->
+                  <div class="table-responsive">
+                    <table class="table table-striped table-hover table-responsive">
+                        <thead>
+                        <tr>
+                        <th>Identificacion</th>
+                        <th>Nombre</th>
+                        <th>Rol</th>
+                        <th>Correo</th>
+                        <th>Estado</th>
+                        <th>Teléfono</th>
+                        <th>Dirección</th>
+                        <th></th>
+                        </tr>
+                        </thead>
+                        <tbody class="table-group-divider">
+                           <!-- @for (item of eventos; track $index) {-->
+                            <tr>
+                                <td>
+                                    <p>1005094005</p>
+                                </td>
+                                <td>
+                                    <p>Sebastian Ramos</p>
+                                </td>
+                                <td>
+                                    <p>Admin</p>
+                                </td>
+                                <td>
+                                    <p>juangmail.com</p>
+                                </td>
+                                <td>
+                                  <p>Activo</p>
+                                </td>
+                                <td>
+                                  <p>3128028428</p>
+                                </td>
+                                <td>
+                                  <p>B la mila</p>
+                                </td>
+                                <td>
+                                  <a href="#">Detalle</a>
+                                </td>
+                                <td>
+                                  <a href="#" style="color: red;">Eliminar</a>
+                                </td>
+                            </tr>
+                           <!-- }-->
+                        </tbody>
+                    </table>
+                    </div>
+                  <!--Fin Tabla de usuarios-->
+              </div>
+            </div>
+            </div>
+
+            <div><br> </div>
+
+           <div class="col-12 text-left ">
+            <button type="submit" class="btn btn-primary" 
+            style="--bs-btn-color: #fff;
+            --bs-btn-bg: #343a40;
+            --bs-btn-border-color: #343a40;
+            --bs-btn-hover-color: #fff;
+            --bs-btn-hover-bg: #000;
+            --bs-btn-hover-border-color: #000;
+            --bs-btn-focus-shadow-rgb: 49, 132, 253;
+            --bs-btn-active-color: #fff;
+            --bs-btn-active-bg: #343a40;
+            --bs-btn-active-border-color: #000;
+            --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+            --bs-btn-disabled-color: #fff;
+            --bs-btn-disabled-bg: #495057;
+            --bs-btn-disabled-border-color: #495057;">
+              <i class="fa-solid fa me-2"></i>Generar Archivo plano
+            </button>
+           </div>
+          
+          
+      </div>
+    </div>
+   </div>
