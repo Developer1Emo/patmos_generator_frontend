@@ -1,0 +1,49 @@
+<div class="container">
+    <div class="card">
+      <div class="card-header p-4" style="background-color: rgb(255, 217, 102);border-color: rgb(255, 191, 0);">
+        <h5 class="mb-0">
+          <i class="fa-solid fa-user me-3"></i>Login
+        </h5>
+      </div>
+      <div class="card-body p-4">
+        <form [formGroup]="loginForm" (ngSubmit)="iniciarSesion()">
+          <div class="col-6">
+            <label class="form-label">Usuario: </label>
+            <input type="text" class="form-control" formControlName="usuario" />
+           </div>
+           <div class="col-6">
+            <label class="form-label">Contraseña: </label>
+            <input type="password" class="form-control" formControlName="password" />
+           </div>
+          <ul>
+            <a routerLink="/restablecerContrasena">Restablecer contraseña</a>
+          </ul>
+          <br>
+           <div class="col-12 text-left">
+            <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid" 
+            style="--bs-btn-color: #fff;
+            --bs-btn-bg: #343a40;
+            --bs-btn-border-color: #343a40;
+            --bs-btn-hover-color: #fff;
+            --bs-btn-hover-bg: #000;
+            --bs-btn-hover-border-color: #000;
+            --bs-btn-focus-shadow-rgb: 49, 132, 253;
+            --bs-btn-active-color: #fff;
+            --bs-btn-active-bg: #343a40;
+            --bs-btn-active-border-color: #000;
+            --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+            --bs-btn-disabled-color: #fff;
+            --bs-btn-disabled-bg: #495057;
+            --bs-btn-disabled-border-color: #495057;">
+              <i class="fa-solid fa me-2"></i>Login
+            </button>
+           </div>
+          
+          </form>
+          
+      </div>
+    </div>
+   </div>
+  
+  
+  
