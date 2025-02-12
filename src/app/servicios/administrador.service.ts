@@ -10,11 +10,11 @@ import { CrearUsuarioDTO } from '../dto/crear-usuario-dto';
 export class AdministradorService {
 
 
- private admintURL = "http://localhost:8080/administrator";
-
+ private admintURL = "http://localhost:8000/administrator";
+ 
  constructor(private http: HttpClient) {  }
 
  public crearUsuario(crearUser: CrearUsuarioDTO ): Observable<MensajeDTO> {
-  return this.http.post<MensajeDTO>(`${this.admintURL}/usuarios/crearUsuarios/`, crearUser);
+  return this.http.post<MensajeDTO>(`${this.admintURL}/usuarios/crearUsuarios`, crearUser);
  }
 }

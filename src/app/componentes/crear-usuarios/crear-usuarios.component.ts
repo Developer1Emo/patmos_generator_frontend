@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { CrearUsuarioDTO } from '../../dto/crear-usuario-dto';
 
+
 @Component({
   selector: 'app-crear-usuarios',
   standalone: true,
@@ -21,8 +22,9 @@ export class CrearUsuariosComponent {
 
   //CONSTRUCTOR
   constructor(private formBuilder: FormBuilder,private router: Router,private adminService: AdministradorService) { 
-    this.tiposDeRol = ['ADMINISTRADOR', 'EMPLEADO'];
+    
     this.crearFormulario();
+    this.tiposDeRol = ['ADMINISTRADOR', 'EMPLEADO'];
    }
 //tipoDeRol
   private crearFormulario() {
@@ -41,8 +43,14 @@ export class CrearUsuariosComponent {
    }
 
 public crearUsuario(){
+  const formValues = this.crearUsuarioForm.value;
+  for (const key in formValues) {
+    if (formValues.hasOwnProperty(key)) {
+      console.log(`${key}: ${formValues[key]}`);
+    }
+  }
+  
   const usuarioDTO = this.crearDTO();
-
 
   this.adminService.crearUsuario(usuarioDTO).subscribe({
     next: (data) => {
