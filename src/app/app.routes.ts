@@ -17,5 +17,9 @@ export const routes: Routes = [
     {
         path: 'crearUsuario',
         loadComponent: () => import('./componentes/crear-usuarios/crear-usuarios.component').then(m => m.CrearUsuariosComponent),
+    },
+    {
+        path: 'detalleUsuario/:id',
+        loadComponent: () => import('./componentes/detalle-usuario/detalle-usuario.component').then(m => m.DetalleUsuarioComponent),
     }
 ];

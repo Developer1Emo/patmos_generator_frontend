@@ -1,0 +1,141 @@
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f9f9f9;
+        padding: 20px;
+    }
+
+    .form-container {
+        display: grid;
+        grid-template-columns:  auto;
+        gap: 15px;
+        max-width: auto;
+        background: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+    }
+
+    label {
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+
+    input, select {
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    .buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    button {
+        background-color: #000;
+        color: white;
+        border: none;
+        padding: 10px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #333;
+    }
+</style>
+<div class="container">
+    <div class="card">
+      <div class="card-header p-4" style="background-color: rgb(255, 217, 102);border-color: rgb(255, 191, 0);">
+        <div>
+            <h5 class="mb-0">
+                <i class="fa-solid me-3"></i>Detalle usuario
+              </h5>
+        </div>        
+      </div>
+      <div class="card-body p-4">
+        <h5 class="card-title"><img src="assets\img\panal1.png" alt="Logo" class="me-2" width="50" height="50">Datos básicos: </h5>
+        
+        <div class="form-container">
+            <!--AQUI VA FORM-->
+            <form [formGroup]="detalleUsuarioForm" (ngSubmit)="guardarUsuario()" novalidate="">
+            <!--IDENTIFICACION-->
+            <div class="form-group">
+                <label for="identificacion">Identificación:</label>
+                <input type="text" class="form-control"   formControlName="identificacion" style=" background-color: #f0f0f0;" readonly>
+            </div>
+            <!--FIN IDENTIFICACION-->
+            <!--ESTADO-->
+            <div>
+                <label for="identificacion">Estado usuario:</label>
+                
+                
+                @if (obtenerEstado()) {
+                    <input type="text" class="form-control" value="Activo" style="color: green; background-color: #f0f0f0;" readOnly>
+                    }@else{
+                        <input type="text" class="form-control" value="Inactivo" style="color: red;background-color: #f0f0f0;" readOnly>
+                    }
+                <p></p>
+                <label class="switch">
+                    <input type="checkbox" formControlName="estadoUsuario">
+                    <span class="slider"></span>
+                  </label>
+                  
+            </div>
+            
+            <!--FIN ESTADO-->
+            <!--NOMBRE-->
+            <div class="form-group">
+                <label for="nombre">Nombre:</label>
+                <input type="text" class="form-control" formControlName="nombre">
+            </div> 
+            
+            <!--FIN NOMBRE-->
+             <!--ROL-->
+             <div class="col-6">
+                <label class="form-label">Rol: </label>
+                <select formControlName="rol" class="form-select" >
+                    <option value="">Seleccione un rol</option>
+                    @for (item of tiposDeRol; track $index) {
+                        <option value="{{item}}">{{item}}</option>
+                    }
+                </select>
+            </div>
+            
+            <!--FIN ROL-->
+            <!--EMAIL-->
+            <div class="form-group">
+                <label for="email">Correo electrónico:</label>
+                <input type="email" class="form-control"  formControlName="email" style=" background-color: #f0f0f0;" readOnly>
+            </div>
+            <!--FIN EMAIL-->
+            <!--TELEFONO-->
+            <div class="form-group">
+                <label for="telefono">Teléfono:</label>
+                <input type="text" class="form-control"   formControlName="telefono">
+            </div>
+            <!--FIN TELEFONO-->
+            <!--DIRECCION-->
+            <div class="form-group">
+                <label for="direccion">Dirección:</label>
+                <input type="text" class="form-control"  formControlName="direccion">
+            </div>
+            <!--FIN DIRECCION-->
+            <br>
+            <div class="buttons">
+                <button type="submit" [disabled]="detalleUsuarioForm.invalid">Actualizar</button>
+            </div>
+        </form>
+            <!--AQUI FINALIZA FORM-->
+        </div>        
+
+      </div>
+    </div>
+   </div>
