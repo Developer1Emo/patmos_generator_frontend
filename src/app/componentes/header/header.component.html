@@ -23,6 +23,10 @@
       </ul>
 
       <div class="col-md-3 text-end">
+        @if (isLogged) {
+          <label class="me-3"> {{rol}}</label>
+          <button type="button" (click)="logout()" class="btn btn-primary ">Logout</button>
+        }
         
       </div>
     </header>
