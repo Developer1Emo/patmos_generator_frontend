@@ -15,4 +15,5 @@ import { HeaderComponent } from './componentes/header/header.component';
 export class AppComponent {
  
   footer = 'Patmos Generator - 2025';
+  
 }

@@ -64,7 +64,7 @@ public crearUsuario(){
         icon: 'success',
         confirmButtonText: 'Aceptar'
       })
-      this.router.navigate(["/"]);
+      this.router.navigate(["/home"]);
     },
     error: (error) => {
       Swal.fire({

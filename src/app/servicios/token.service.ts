@@ -57,7 +57,7 @@ public getToken(): string | null {
 public login(token: string) {
   this.setToken(token);
   const rol = this.getRol();
-  let destino = rol == "ADMINISTRADOR" ? "" : "";
+  let destino = rol == "ADMINISTRADOR" ? "/home" : "/home";
   this.router.navigate([destino]).then(() => {
     window.location.reload();
   });
