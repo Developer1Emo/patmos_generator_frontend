@@ -4,6 +4,7 @@ import { LoginGuard } from './servicios/permiso.service';
 import { RolesGuard } from './servicios/roles.service';
 
 export const routes: Routes = [
+    { path: '', redirectTo: '/login', pathMatch: 'full' }, // Redirige a la ruta /home
     {
         path: 'home',
         loadComponent: () => import('./componentes/inicio/inicio.component').then(m => m.InicioComponent),
