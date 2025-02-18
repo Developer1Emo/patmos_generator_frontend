@@ -36,4 +36,13 @@ public actualizarUsuario(id: string, usuarioActualizar: ActualizarUsuarioDTO): O
   return this.http.put<MensajeDTO>(`${this.admintURL}/usuarios/actualizar-usuario/${id}`, usuarioActualizar);
 }
 
+// Método para obtener usuarios con búsqueda y paginación
+public getUsuariosCadena(busqueda: string = '', page: number = 1): Observable<any> {
+  let params = new HttpParams()
+    .set('busqueda', busqueda)
+    .set('page', page.toString());
+
+  return this.http.get(`${this.admintURL}/usuarios/target/`, { params });
+}
+
 }

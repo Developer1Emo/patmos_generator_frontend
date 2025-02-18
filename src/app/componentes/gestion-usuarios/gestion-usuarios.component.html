@@ -1,56 +1,4 @@
-<style>
-  body {
-      font-family: Arial, sans-serif;
-      background-color: #f9f9f9;
-      padding: 20px;
-  }
 
-  .form-container {
-      display: grid;
-      grid-template-columns:  auto;
-      gap: 15px;
-      max-width: auto;
-      background: #fff;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-
-  .form-group {
-      display: flex;
-      flex-direction: column;
-  }
-
-  label {
-      margin-bottom: 5px;
-      font-weight: bold;
-  }
-
-  input, select {
-      padding: 8px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-  }
-
-  .buttons {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-  }
-
-  button {
-      background-color: #000;
-      color: white;
-      border: none;
-      padding: 10px;
-      border-radius: 4px;
-      cursor: pointer;
-  }
-
-  button:hover {
-      background-color: #333;
-  }
-</style>
 <div class="container">
     <div class="card">
       <div class="card-header p-4" style="background-color: rgb(255, 217, 102);border-color: rgb(255, 191, 0);">
@@ -60,12 +8,21 @@
       </div>
       <div class="card-body p-4">
         <div class="form-container">
-          <div class="form-group">
-            <input type="text" id="identificacion" name="identificacion" placeholder="Ingrese el número de identificación o el nombre completo">
-          </div>
-          <div class="buttons">
-            <button type="submit">Buscar</button>
-          </div>
+
+          <!--FORMULARIO DE BUSQUEDA-->
+         
+            <form [formGroup]="busquedaForm" (ngSubmit)="buscar()" novalidate="">
+              <div class="form-group">
+                <input type="text" formControlName="cadenaBuscada" name="cadenaBuscada" placeholder="Ingrese el número de identificación o el nombre completo">
+                <br>
+                <div class="buttons">
+                  <button type="submit">Buscar</button>
+                </div>
+              </div>
+            </form>
+                
+          <!--FIN FORMULARIO DE BUSQUEDA-->
+          
         </div>
         <br>
         <p class="card-text">
