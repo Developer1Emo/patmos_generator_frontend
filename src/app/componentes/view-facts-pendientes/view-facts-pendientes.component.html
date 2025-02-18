@@ -1,3 +1,12 @@
+<!-- Paginación -->
+<div>
+    <button (click)="cambiarPagina(paginaActual - 1)" [disabled]="paginaActual <= 1">Anterior</button>
+    
+    <span>  Página {{ paginaActual }} de {{ totalPaginas }}  </span>
+    
+    <button (click)="cambiarPagina(paginaActual + 1)" [disabled]="paginaActual >= totalPaginas">Siguiente</button>
+</div>
+
 <div class="table-responsive">
     <table class="table table-striped table-hover table-responsive">
         <thead>
@@ -9,22 +18,22 @@
         </tr>
         </thead>
         <tbody class="table-group-divider">
-           <!-- @for (item of eventos; track $index) {-->
+            @for (item of facturas; track $index) {
             <tr>
                 <td>
-                    <p>004</p>
+                    <p>{{ item.compania }}</p>
                 </td>
                 <td>
-                    <p>C01</p>
+                    <p>{{ item.co }}</p>
                 </td>
                 <td>
-                    <p>FE</p>
+                    <p>{{ item.tipo_documento }}</p>
                 </td>
                 <td>
-                    <p>00002121</p>
+                    <p>{{ item.consecutivo }}</p>
                 </td>
             </tr>
-           <!-- }-->
+           }
         </tbody>
     </table>
     </div>

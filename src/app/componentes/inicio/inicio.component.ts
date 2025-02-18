@@ -8,6 +8,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import Swal from 'sweetalert2';
 import { EmployedService } from '../../servicios/employed.service';
 import { HttpResponse } from '@angular/common/http';
+import { FacturaDTO } from '../../dto/factura-dto';
+import { PaginacionRespuestaDTO } from '../../dto/paginacion-respuesta-dto';
+import { PaginacionFactDTO } from '../../dto/paginacion-fact-dto';
 
 @Component({
   selector: 'app-inicio',
@@ -20,25 +23,27 @@ export class InicioComponent {
 
 
   isLogged = false;
-    isAdmin = false;
-    isEmpleado = false;
+  isAdmin = false;
+  isEmpleado = false;
   
-    nombre: string = "";
-    email: string = "";
-    rol: string = "";
-    idUser:string ='';
-    constructor(private tokenService: TokenService,private router: Router,private eployedService: EmployedService) {
-      this.isLogged = this.tokenService.isLogged();
-      
-   
-      if (this.isLogged) {
-        this.email = this.tokenService.getEmail();
-        this.rol= this.tokenService.getRol();
-        this.isAdmin = this.tokenService.isAdmin();
-        this.isEmpleado = this.tokenService.isEmpleado();
-        this.idUser=this.tokenService.getID();
-      }
+  nombre: string = "";
+  email: string = "";
+  rol: string = "";
+  idUser:string ='';
+
+  constructor(private tokenService: TokenService,private router: Router,private eployedService: EmployedService) {
+    this.isLogged = this.tokenService.isLogged();
+    
+  
+    if (this.isLogged) {
+      this.email = this.tokenService.getEmail();
+      this.rol= this.tokenService.getRol();
+      this.isAdmin = this.tokenService.isAdmin();
+      this.isEmpleado = this.tokenService.isEmpleado();
+      this.idUser=this.tokenService.getID();
     }
+  }
+
    
     public generarPlano() {
       this.eployedService.descargarArchivo(this.idUser).subscribe({
