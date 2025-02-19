@@ -44,14 +44,7 @@ export class LoginComponent  implements OnInit {
 
         this.authService.iniciarSesion(loginDTO).subscribe({
           next: (data) => {
-            Swal.fire({
-              title: 'Ingreso exitoso',
-              text: 'Bienvenid@',
-              icon: 'success',
-              confirmButtonText: 'Aceptar'
-            })
-            this.tokenService.login(data.respuesta.token);
-            
+            this.tokenService.login(data.respuesta.token);        
           },
           error: (error) => {
             Swal.fire({

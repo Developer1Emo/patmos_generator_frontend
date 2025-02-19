@@ -29,5 +29,10 @@ export const routes: Routes = [
         path: 'detalleUsuario/:id',
         loadComponent: () => import('./componentes/detalle-usuario/detalle-usuario.component').then(m => m.DetalleUsuarioComponent),
         canActivate: [RolesGuard], data: { expectedRole: ["ADMINISTRADOR"] }
+    },
+    {
+        path: 'gestionRegistros',
+        loadComponent: () => import('./componentes/gestion-registros/gestion-registros.component').then(m => m.GestionRegistrosComponent),
+        canActivate: [RolesGuard], data: { expectedRole: ["ADMINISTRADOR"] } 
     }
 ];

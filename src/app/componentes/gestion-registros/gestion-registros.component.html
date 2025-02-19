@@ -1,0 +1,105 @@
+
+<div class="container">
+    <div class="card">
+      <div class="card-header p-4" style="background-color: rgb(255, 217, 102);border-color: rgb(255, 191, 0);">
+        <h5 class="mb-0">
+          <i class="fa-solid mes-3"></i>Gestión de registros
+        </h5>
+      </div>
+      <div class="card-body p-4">
+        <div class="form-container">
+
+          <!--FORMULARIO DE BUSQUEDA  [formGroup]="busquedaForm" (ngSubmit)="obtenerRegistros()" -->
+         
+            <form [formGroup]="busquedaForm" (ngSubmit)="obtenerRegistros()"  novalidate="">
+              <div class="form-group">
+                <input type="email" formControlName="correo" name="correo" placeholder="Ingrese el correo completo de quien desea buscar movimientos">
+                <br>
+                <input type="date" formControlName="fecha_desde" name="fecha_desde" placeholder="Ingrese la fecha desde donde desea consultar">
+                <br>
+                <input type="date" formControlName="fecha_hasta" name="fecha_hasta" placeholder="Ingrese la fecha hasta donde desea consultar">
+                <br>
+                <div class="buttons">
+                  <button type="submit">Buscar</button>
+                </div>
+              </div>
+            </form>
+                
+          <!--FIN FORMULARIO DE BUSQUEDA-->
+          
+        </div>
+        <br>
+        <p class="card-text">
+           
+            </p>
+            <div class="container">
+                <div class="card">
+                    <div class="card-header p-4" style="background-color: rgb(255, 217, 102);border-color: rgb(255, 191, 0);">
+                        <h5 class="mb-0">
+
+                            <div class="fs-5 mb-6">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-receipt" viewBox="0 0 16 16">
+                                    <path d="M1.92.506a.5.5 0 0 1 .434.14L3 1.293l.646-.647a.5.5 0 0 1 .708 0L5 1.293l.646-.647a.5.5 0 0 1 .708 0L7 1.293l.646-.647a.5.5 0 0 1 .708 0L9 1.293l.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .801.13l.5 1A.5.5 0 0 1 15 2v12a.5.5 0 0 1-.053.224l-.5 1a.5.5 0 0 1-.8.13L13 14.707l-.646.647a.5.5 0 0 1-.708 0L11 14.707l-.646.647a.5.5 0 0 1-.708 0L9 14.707l-.646.647a.5.5 0 0 1-.708 0L7 14.707l-.646.647a.5.5 0 0 1-.708 0L5 14.707l-.646.647a.5.5 0 0 1-.708 0L3 14.707l-.646.647a.5.5 0 0 1-.801-.13l-.5-1A.5.5 0 0 1 1 14V2a.5.5 0 0 1 .053-.224l.5-1a.5.5 0 0 1 .367-.27m.217 1.338L2 2.118v11.764l.137.274.51-.51a.5.5 0 0 1 .707 0l.646.647.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.509.509.137-.274V2.118l-.137-.274-.51.51a.5.5 0 0 1-.707 0L12 1.707l-.646.647a.5.5 0 0 1-.708 0L10 1.707l-.646.647a.5.5 0 0 1-.708 0L8 1.707l-.646.647a.5.5 0 0 1-.708 0L6 1.707l-.646.647a.5.5 0 0 1-.708 0L4 1.707l-.646.647a.5.5 0 0 1-.708 0z"/>
+                                    <path d="M3 4.5a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5m8-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5"/>
+                                  </svg> Registros
+                              </div>
+                    </h5>
+                </div>
+                <div class="card-body p-4">
+                  <!--Tabla de usuarios-->
+                  <!--PAGINACION-->
+                 
+                  
+                  <!-- Paginación 
+                  <div>
+                    <button (click)="cambiarPagina(paginaActual - 1)" [disabled]="paginaActual <= 1">Anterior</button>
+                    
+                    <span>  Página {{ paginaActual }} de {{ totalPaginas }}  </span>
+                    
+                    <button (click)="cambiarPagina(paginaActual + 1)" [disabled]="paginaActual >= totalPaginas">Siguiente</button>
+                  </div>-->
+
+                  <div class="table-responsive">
+                    <table class="table table-striped table-hover table-responsive">
+                        <thead>
+                        <tr>
+                        <th>Código de registro</th>
+                        <th>Fecha</th>
+                        <th>Usuario</th>  
+                        <th></th>
+                        </tr>
+                        </thead>
+                        <tbody class="table-group-divider">
+                           @for (item of registros; track $index) {
+                            <tr>
+                                <td>
+                                    <p>{{item.id}}</p>
+                                </td>
+                                <td>
+                                    <p>{{item.fecha}}</p>
+                                </td>
+                                <td>
+                                    <p>{{item.idUser}}</p>
+                                </td>
+                                <td>
+                                    <a href="">Ver</a>
+                                <!-- <a routerLink="/detalleUsuario/{{usuario.id}}">Editar</a> -->   
+                                </td>
+                            </tr>
+                            }
+                        </tbody>
+                    </table>
+                    </div>
+                  <!--Fin Tabla de usuarios-->
+              </div>
+            </div>
+            </div>
+
+            <div><br> </div>
+
+           <div class="col-12 text-left ">
+      
+           </div>          
+      </div>
+    </div>
+   </div>

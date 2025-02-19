@@ -27,6 +27,9 @@ constructor(private tokenService: TokenService,private router: Router,private ep
   ngOnInit(): void {
       this.obtenerFacturasPendientes(this.paginaActual);
     }
+    refrescar(){
+      this.obtenerFacturasPendientes(this.paginaActual);
+    }
     obtenerFacturasPendientes(pagina: number): void {
         this.loading = true;  // Muestra el cargando
         this.eployedService.getFactsPendientes(pagina).subscribe((response: PaginacionFactDTO) => {

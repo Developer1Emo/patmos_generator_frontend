@@ -1,11 +1,35 @@
 <!-- Paginación -->
-<div>
-    <button (click)="cambiarPagina(paginaActual - 1)" [disabled]="paginaActual <= 1">Anterior</button>
+ <div class="d-flex align-items-center">
+    <div>
+        <button (click)="cambiarPagina(paginaActual - 1)" [disabled]="paginaActual <= 1">Anterior</button>
+        
+        <span>  Página {{ paginaActual }} de {{ totalPaginas }}  </span>
+        
+        <button (click)="cambiarPagina(paginaActual + 1)" [disabled]="paginaActual >= totalPaginas">Siguiente</button>
+    </div>
+    <div >
+        <button type="button" class="btn btn-primary" 
+        style="--bs-btn-color: #fff; 
+              --bs-btn-bg: #4e8dcc; 
+              --bs-btn-border-color: #4e8dcc; 
+              --bs-btn-hover-color: #fff; 
+              --bs-btn-hover-bg: #2262a1; 
+              --bs-btn-hover-border-color: #2262a1; 
+              --bs-btn-focus-shadow-rgb: 49, 132, 253; 
+              --bs-btn-active-color: #fff; 
+              --bs-btn-active-bg: #343a40; 
+              --bs-btn-active-border-color: #2262a1; 
+              --bs-btn-active-shadow: inset 0 3px 5px #2262a1; 
+              --bs-btn-disabled-color: #fff; 
+              --bs-btn-disabled-bg: #4e8dcc; 
+              --bs-btn-disabled-border-color: #4e8dcc;"
+              (click)="refrescar()">
+            <div class="fa-solid fa-sync-alt me-0"></div>
+        </button>
+    </div>
     
-    <span>  Página {{ paginaActual }} de {{ totalPaginas }}  </span>
-    
-    <button (click)="cambiarPagina(paginaActual + 1)" [disabled]="paginaActual >= totalPaginas">Siguiente</button>
-</div>
+ </div>
+                            
 
 <div class="table-responsive">
     <table class="table table-striped table-hover table-responsive">

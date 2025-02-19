@@ -45,4 +45,15 @@ public getUsuariosCadena(busqueda: string = '', page: number = 1): Observable<an
   return this.http.get(`${this.admintURL}/usuarios/target/`, { params });
 }
 
+// Método para obtener los registros con fecha y correo de usuario
+getRegistros(fechaDesde: string, fechaHasta: string, correoUsuario: string, page: number = 1): Observable<any> {
+  let params = new HttpParams()
+    .set('fecha_desde', fechaDesde)
+    .set('fecha_hasta', fechaHasta)
+    .set('correo', correoUsuario)
+    .set('page', page.toString());  // Paginación si es necesario
+
+  return this.http.get<any>(`${this.admintURL}/usuarios/registros/listReg/`, { params });
+}
+
 }
